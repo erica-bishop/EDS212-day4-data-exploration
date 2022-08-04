@@ -7,7 +7,7 @@ editor: visual
 ```{r}
 #| echo: false
 #| warning: false
-##attach packages
+##attach packages (echo hides code but still shows outputs, warning hides outputs not code, include hides everything)
 library(tidyverse)
 library(palmerpenguins)
 library(GGally)
@@ -24,13 +24,59 @@ Look at penguins, view penguins in console, and:
 ```{r}
 #| include: false
 #look at column names
-names(penguins)
+#names(penguins)
 #dimensions
-dim(penguins)
+#dim(penguins)
 ##first six lines or last 6 lines
-head(penguins)
-tail(penguins)
+#head(penguins)
+#tail(penguins)
+```
+
+## Exploratory Data Visualization
+
+```{r}
+#from skimr -
+skim(penguins)
+
+```
+
+```{r}
+#from GGall
+#| include: false
+
+GGally::ggpairs(penguins)
+
+```
+## Jitter plot of flipper length by species
+
+```{r}
+#only use aes to change a variable, mapping a variable onto aesthetic. can just go straigh in argument if constant
+#alpha changes transparency
+#google r colors to find the color names r likes
+
+ggplot(data = penguins,
+       aes(x = species, 
+          y = flipper_length_mm)) +
+  geom_jitter(width = 0.2,
+              alpha = 0.5,
+              aes(color = species)) +
+  geom_boxplot(fill = NA) +
+  theme_minimal() +
+  scale_color_manual(values = c("deeppink", "turquoise2", "coral1"))
+
+```
+
+Now make exploratory histogram - only give one variable for histogram
+
+```{r}
+ggplot(data = penguins,
+       aes(x = bill_length_mm)) +
+  geom_histogram(aes(fill = species), color = "darkorange1") +
+  facet_wrap(~species, ncol = 1)
+
 ```
 
 
-## Exploratory Data Visualization
+
+
+
