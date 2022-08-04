@@ -1,0 +1,36 @@
+---
+title: "Day 4 - Exploring data"
+format: html
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| warning: false
+##attach packages
+library(tidyverse)
+library(palmerpenguins)
+library(GGally)
+library(skimr)
+
+```
+
+Note: if you don't want code chunks to show up in quarto use hashpipe operator "#| warning: false"
+or
+#| echo: false (then code won't show up)
+
+
+Look at penguins, view penguins in console, and:
+```{r}
+#| include: false
+#look at column names
+names(penguins)
+#dimensions
+dim(penguins)
+##first six lines or last 6 lines
+head(penguins)
+tail(penguins)
+```
+
+
+## Exploratory Data Visualization
