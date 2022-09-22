@@ -15,12 +15,10 @@ library(skimr)
 
 ```
 
-Note: if you don't want code chunks to show up in quarto use hashpipe operator "#| warning: false"
-or
-#| echo: false (then code won't show up)
-
+Note: if you don't want code chunks to show up in quarto use hashpipe operator "#\| warning: false" or #\| echo: false (then code won't show up)
 
 Look at penguins, view penguins in console, and:
+
 ```{r}
 #| include: false
 #look at column names
@@ -47,6 +45,7 @@ skim(penguins)
 GGally::ggpairs(penguins)
 
 ```
+
 ## Jitter plot of flipper length by species
 
 ```{r}
@@ -76,7 +75,4 @@ ggplot(data = penguins,
 
 ```
 
-
-
-
-
+Making changes to test token 9/22
